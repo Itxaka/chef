@@ -103,6 +103,7 @@ class Chef
         end
 
         def remove_package(name, version)
+          version = version.nil? || version.empty? ? @current_resource.version : version
           zypper_package("remove", name, version)
         end
       
